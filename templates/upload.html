@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Underwater Species Identifier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        background: linear-gradient(
+          -45deg,
+          #23d5ab,
+          #23a6d5,
+          #e73c7e,
+          #ee7752
+        );
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        font-family: "Work Sans", sans-serif;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="hero is-fullheight" has-background-black>
+      <section class="section">
+        <div class="container">
+          <center>
+            <h1 class="title" style="color: black; font-weight: 700;">
+              UNDERWATER SPECIES IDENTIFIER
+            </h1>
+          </center>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container has-text-centered bg-text" style="width: 100%">
+          <p class="subtitle" style="color: black; font-weight: 600;">
+            Upload your underwater image to generate the Discriminative Region
+            Suppression CAM:
+          </p>
+          <p style="color: black; font-style: italic; font-size: 0.9rem;">
+            (Note: This tool highlights the regions used by the model to identify
+            species in underwater images. It's for research and educational
+            purposes.)
+          </p>
+          <br /><br />
+          <div>
+            <form
+              action="/"
+              method="post"
+              enctype="multipart/form-data"
+              style="margin-top: 30px; width: 80%; text-align: center; margin: auto"
+            >
+              <div class="file has-name is-centered">
+                <label class="file-label">
+                  <input
+                    class="file-input"
+                    type="file"
+                    id="image"
+                    name="image"
+                    accept="image/*"
+                    required
+                  />
+                  <span class="file-cta">
+                    <span class="file-label">Choose an image</span>
+                  </span>
+                  <span class="file-name" id="file-name">No file chosen</span>
+                </label>
+              </div>
+              <br />
+              <input
+                type="submit"
+                value="SUBMIT"
+                class="button is-black"
+                id="classify_button"
+              />
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <div>
+            <a class="navbar-item" href="#"></a>
+          </div>
+        </div>
+
+        <div class="level-item has-text-centered">
+          <div>
+            <a class="navbar-item" href="#"></a>
+            <p class="heading" style="color: white">
+              <strong>SCROLL DOWN for Contact Info</strong>
+            </p>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <section class="bd-footer-link">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <article class="media notification has-background-white">
+              <div class="media-content">
+                <div class="content">
+                  <p class="subsubtitle">
+                    <strong>Contact</strong>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="media notification has-background-white">
+              <div class="media-content">
+                <div class="content">
+                  <div class="columns">
+                    <div class="column"></div>
+                    <div class="column">
+                      <a
+                        class="navbar-item"
+                        href="https://www.linkedin.com/in/yourprofile/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        ><figure class="media-content">
+                          <span class="icon">
+                            <i class="fab fa-lg fa-linkedin"></i>
+                          </span>
+                        </figure></a
+                      >
+                    </div>
+                    <div class="column">
+                      <a
+                        class="navbar-item"
+                        href="https://github.com/yourgithub"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        ><figure class="media-content">
+                          <span class="icon">
+                            <i class="fab fa-lg fa-github"></i>
+                          </span>
+                        </figure></a
+                      >
+                    </div>
+                    <div class="column">
+                      <a
+                        class="navbar-item"
+                        href="mailto:youremail@example.com"
+                        ><figure class="media-content">
+                          <span class="icon">
+                            <i class="fas fa-lg fa-envelope-open-text"></i>
+                          </span>
+                        </figure></a
+                      >
+                    </div>
+                    <div class="column">
+                      <a
+                        class="navbar-item"
+                        href="https://twitter.com/yourhandle"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        ><figure class="media-content">
+                          <span class="icon">
+                            <i class="fab fa-lg fa-twitter"></i>
+                          </span>
+                        </figure></a
+                      >
+                    </div>
+                    <div class="column">
+                      <a
+                        class="navbar-item"
+                        href="https://yourblog.example.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        ><figure class="media-content">
+                          <span class="icon">
+                            <i class="fas fa-lg fa-blog"></i>
+                          </span>
+                        </figure></a
+                      >
+                    </div>
+                    <div class="column">
+                      <a
+                        class="navbar-item"
+                        href="https://yourportfolio.example.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        ><figure class="media-content">
+                          <span class="icon">
+                            <i class="fas fa-lg fa-folder-open"></i>
+                          </span>
+                        </figure></a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const fileInput = document.querySelector(".file-input");
+      const fileName = document.getElementById("file-name");
+
+      fileInput.addEventListener("change", () => {
+        if (fileInput.files.length > 0) {
+          fileName.textContent = fileInput.files[0].name;
+        } else {
+          fileName.textContent = "No file chosen";
+        }
+      });
+    </script>
+  </body>
+</html>

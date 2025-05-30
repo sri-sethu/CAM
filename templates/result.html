@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CAM Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        .hero {
+            background: black url(static/blue_background.jpg) center / cover;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .output-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 100px;
+        }
+        .output-cell {
+            margin: 0 50px;
+            text-align: center;
+        }
+        .output-cell h2 {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero is-fullheight" has-background-black>
+    <section class="section">
+        <div class="container">
+            <center>
+                <h1 class="title" style="font-size:3rem; color:white;">
+                    CAM Output Viewer
+                </h1>
+            </center>
+        </div>
+    </section>
+
+    <div class="output-container">
+        <div class="output-cell">
+            <h2 style="font-size: 2rem; font-weight: bold; color:rgb(255, 255, 255); margin-top: 20px;">Generated CAM</h2>
+            <img src="{{ result_image }}" style="max-width: 512px; height: auto; margin-top: 20px;">
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="center">
+                <a href="/" class="button is-black is-inverted" style="font-size:1.5rem">Try Another</a>
+            </div>
+        </div>
+    </section>
+</section>
+
+</body>
+</html>
