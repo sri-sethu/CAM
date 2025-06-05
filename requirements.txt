@@ -1,8 +1,10 @@
+torch==1.12.0+cpu
+torchvision==0.13.0+cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
 Gunicorn
-torch
-torchvision
-numpy
-opencv-python
+numpy==1.24.4
+opencv-python-headless
 Pillow
 flask
 werkzeug
+gdown
