@@ -7,9 +7,6 @@ import cv2
 import numpy as np
 import os
 
-model_urls = {'vgg16': 'https://download.pytorch.org/models/vgg16-397923af.pth'}
-
-
 class DRS_learnable(nn.Module):
     """
     DRS learnable setting
@@ -301,24 +298,7 @@ cfg = {
 
 def vgg16(pretrained=True, delta=0.6):
     model = VGG(make_layers(cfg['D1']), delta=delta)
-
-    if pretrained:
-        model.load_state_dict(model_zoo.load_url(model_urls['vgg16']), strict=False)
-
     return model
-
-
-import copy
-
-model = vgg16(pretrained=True, delta=0.6)
-
-#print(model)
-
-input = torch.randn(2, 3, 512, 512)
-
-out = model(input)
-
-model.get_parameter_groups()
 
 import torch
 from torchvision import transforms
@@ -326,14 +306,23 @@ from PIL import Image
 import numpy as np
 import cv2
 import os
+import gdown
 
 delta = 0.5
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+# Download model from Google Drive if not already downloaded
+model_path = 'model/weak_20.pth'
+if not os.path.exists(model_path):
+    os.makedirs('model', exist_ok=True)
+    file_id = "1c--qGJLB3l_5I_YR4a0HNi91rJqE7ZNB"
+    url = f"https://drive.google.com/uc?id={file_id}"
+    gdown.download(url, model_path, quiet=False)
+
 # Load the model
 model = vgg16(pretrained=False, delta=delta)
 model = torch.nn.DataParallel(model).to(device)
-checkpoint = torch.load('model/weak_20.pth', map_location=device)
+checkpoint = torch.load(model_path, map_location=device)
 model.module.load_state_dict(checkpoint['model_state'])
 model.eval()
 
